@@ -1,0 +1,24 @@
+{
+  "name": "react-native-form-auto-next",
+  "version": "1.0",
+  "description": "A simple form component that automatically focuses the next TextInput - with nested children support",
+  "main": "index.js",
+  "homepage": "https://github.com/ethercreative/react-native-form-auto-next",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethercreative/react-native-form-auto-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ethercreative/react-native-form-auto-next/issues"
+  },
+  "keywords": [
+    "react-native",
+    "form",
+    "next",
+    "autofocus",
+    "onenter",
+    "onsubmitediting"
+  ],
+  "author": "James Edmonston",
+  "license": "MIT"
+}
