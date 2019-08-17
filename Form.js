@@ -14,6 +14,14 @@ export default ({ children }) => {
       return;
     }
 
+    const {
+      props: { focus },
+    } = next;
+
+    if (!focus) {
+      return;
+    }
+
     next.focus();
   };
 
@@ -41,7 +49,11 @@ export default ({ children }) => {
         });
       }
 
-      if (displayName !== 'TextInput') {
+      const {
+        props: { setFieldValue },
+      } = child;
+
+      if (displayName !== 'TextInput' && !setFieldValue) {
         return child;
       }
 
