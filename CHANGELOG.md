@@ -7,13 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.2] - 2019-07-18
+## [1.0.2] - 2019-08-18
 
 ### Changed
 
 - Improved custom component focus prop checks
 
-## [1.0.1] - 2019-07-17
+## [1.0.1] - 2019-08-17
 
 ### Added
 
