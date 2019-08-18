@@ -1,6 +1,6 @@
 # react-native-form-auto-next
 
-A simple form component that automatically focuses the next TextInput - with nested children support
+A simple React Native form component that automatically focuses the next TextInput on return
 
 ## Installation
 

@@ -14,15 +14,21 @@ export default ({ children }) => {
       return;
     }
 
-    const {
-      props: { focus },
-    } = next;
+    let { focus } = next;
+
+    if (!focus) {
+      const {
+        props: { focus: focusProp },
+      } = next;
+
+      focus = focusProp;
+    }
 
     if (!focus) {
       return;
     }
 
-    next.focus();
+    focus();
   };
 
   const childrenWithProps = (children) => {
