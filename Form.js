@@ -37,6 +37,10 @@ export default ({ children }) => {
         return;
       }
 
+      if (typeof child === 'string') {
+        return child;
+      }
+
       const {
         type: { displayName },
       } = child;
