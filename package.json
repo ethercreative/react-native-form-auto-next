@@ -1,6 +1,6 @@
 {
   "name": "react-native-form-auto-next",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple React Native form component that automatically focuses the next TextInput on return",
   "main": "index.js",
   "homepage": "https://github.com/ethercreative/react-native-form-auto-next",
