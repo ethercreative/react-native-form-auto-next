@@ -5,10 +5,11 @@ export default ({ children }) => {
     return null;
   }
 
-  let inputs = [];
+  const inputs = [];
+  let i = 0;
 
   const onSubmitEditing = (index) => {
-    const next = inputs[index];
+    const next = inputs[index + 1];
 
     if (!next) {
       return;
@@ -67,30 +68,43 @@ export default ({ children }) => {
         return child;
       }
 
-      const clone = cloneElement(child, {
-        ref: (input) => inputs.push(input),
-      });
+      const props = {
+        onRef: (input) => inputs.push(input),
+        indexRef: i,
+        blurOnSubmit: false,
+      };
 
-      const ref = clone.ref();
+      const {
+        type: { State },
+      } = child;
 
-      return cloneElement(clone, {
+      if (State) {
+        props.ref = (input) => inputs.push(input);
+      }
+
+      let clone = cloneElement(child, props);
+
+      clone = cloneElement(clone, {
         onSubmitEditing: () => {
           const {
             props: { onSubmitEditing: onSubmitEditingProp },
-          } = clone;
+          } = child;
 
           if (onSubmitEditingProp) {
             onSubmitEditingProp();
             return;
           }
 
-          onSubmitEditing(ref);
+          const { indexRef } = clone.props;
+          onSubmitEditing(indexRef);
         },
-        blurOnSubmit: false,
       });
+
+      i += 1;
+
+      return clone;
     });
 
-    inputs = inputs.filter((input) => input !== undefined);
     return map;
   };
 
