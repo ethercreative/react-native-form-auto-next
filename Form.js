@@ -9,10 +9,16 @@ export default ({ children }) => {
   let i = 0;
 
   const onSubmitEditing = (index) => {
-    const next = inputs[index + 1];
+    let next = inputs[index + 1];
 
     if (!next) {
       return;
+    }
+
+    const { current } = next;
+
+    if (current) {
+      next = current;
     }
 
     let { focus } = next;
@@ -23,6 +29,14 @@ export default ({ children }) => {
       } = next;
 
       focus = focusProp;
+    }
+
+    const {
+      props: { onPress },
+    } = next;
+
+    if (onPress) {
+      focus = onPress;
     }
 
     if (!focus) {
@@ -60,11 +74,7 @@ export default ({ children }) => {
         });
       }
 
-      const {
-        props: { setFieldValue },
-      } = child;
-
-      if (displayName !== 'TextInput' && !setFieldValue) {
+      if (displayName !== 'TextInput') {
         return child;
       }
 
